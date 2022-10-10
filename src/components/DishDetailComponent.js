@@ -39,7 +39,7 @@ class DishDetail extends Component
             return (
                 <List className="list-unstyled">
                     <li>{text.comment}</li>
-                    <li>-- {text.author} , {text.date}</li>
+                    <li>-- {text.author} , {new Intl.DateTimeFormat('en-US', { year: 'numeric', month:'short', day: '2-digit'}).format(new Date(Date.parse(text.date)))}</li>
                 </List>
             );
         });
@@ -54,14 +54,16 @@ class DishDetail extends Component
         if(this.props.dish!=null)
         {
         return (
-            <div className="row">
-            <div className="col-12 col-md-5 mt-1 m-1">
-                {this.renderDish(this.props.dish)}
-            </div>
-            <div className="col-12 col-md-5 mt-1">
-                <h4>Comments</h4>
-                {this.renderComments(this.props.dish.comments)}
-            </div>
+            <div className="container">
+                <div className="row">
+                    <div className="col-12 col-md-5 mt-1 m-1">
+                        {this.renderDish(this.props.dish)}
+                    </div>
+                    <div className="col-12 col-md-5 mt-1">
+                        <h4>Comments</h4>
+                        {this.renderComments(this.props.dish.comments)}
+                    </div>
+                </div>
             </div>
         );}
         else
