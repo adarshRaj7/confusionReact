@@ -10,6 +10,7 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import Contact from './ContactComponent';
+import About from './AboutComponent';
 
 class Main extends Component {
 
@@ -54,6 +55,7 @@ constructor(props)
           <Route exact path="/menu" component={()=><Menu dishes={this.state.dishes}/>}></Route>
           <Route path="/menu/:dishId" component={DishWithId}></Route>
           <Route exact path='/contactus' component={Contact}></Route>
+          <Route exact path='/aboutus' component={()=><About leaders={this.state.leaders}></About>}></Route>
           <Redirect to="/home"></Redirect>
         </Switch>
         <Footer/>

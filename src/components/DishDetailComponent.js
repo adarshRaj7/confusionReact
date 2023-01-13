@@ -46,7 +46,7 @@ import {Link} from 'react-router-dom';
     {
             return (
                 // <div>{cmmts}</div>
-                <div className="col-12 col-md-5 m-1">
+                <div className="col-12 m-1">
                     <ul className="list-unstyled">
                         {comments.map((comment)=>{
                             return (
