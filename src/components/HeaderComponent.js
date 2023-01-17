@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Modal, Button, ModalHeader, ModalBody, Navbar,NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, FormGroup, Label, Input, Form } from 'reactstrap';
+import {Badge,Modal, Button, ModalHeader, ModalBody, Navbar,NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, FormGroup, Label, Input, Form } from 'reactstrap';
 import '../App.css';
 import {NavLink} from 'react-router-dom';
 
@@ -81,9 +81,9 @@ class Header extends Component{
                    
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <Button outline  onClick={this.toggleModal}>
-                                    <span className='fa fa-sign-in fa-lg'>Login</span>
-                                </Button>
+                                <Badge  className="login-btn " pill onClick={this.toggleModal}>
+                                    <span className='mt-2 mb-2 ml-4 mr-4 fa fa-sign-in fa-lg'>Login</span>
+                                </Badge>
                             </NavItem>
                         </Nav>
                     </Collapse>

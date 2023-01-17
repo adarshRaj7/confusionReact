@@ -97,3 +97,7 @@
 .loginModal{
   z-index: 10000;
 }
+.login-btn{
+  
+  background-color: #9575CD;
+}
