@@ -10,7 +10,7 @@ import {Link} from 'react-router-dom';
                     <Card >
                         <CardImg  src={dish.image} alt={dish.name}></CardImg>
                         <CardBody>
-                            <CardTitle><h4>{dish.name}</h4></CardTitle>
+                            <CardTitle>{dish.name}</CardTitle>
                             <CardText>{dish.description}</CardText>
                         </CardBody>
                     </Card>

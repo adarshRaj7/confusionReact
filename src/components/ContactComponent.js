@@ -75,15 +75,16 @@ class Contact extends Component {
     //         lastname: '',
     //         telnum: '',
     //         email:'',
-    //         agree: false,
-    //         contactType: "Tel",
+    //         agree: false,       
     //         message:''
+            
     //     }
     // }
 
-    render(){
+    render()
+    {
         const errors=this.validate(this.state.firstname, this.state.lastname, this.state.telnum, this.state.email);
-    return(
+        return(
         <div className="container">
             <div className="container">
                 <div className="row ">

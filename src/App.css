@@ -94,3 +94,6 @@
   padding-bottom: 30px;
   padding-top: 30px;
 }
+.loginModal{
+  z-index: 10000;
+}

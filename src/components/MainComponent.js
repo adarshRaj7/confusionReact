@@ -11,7 +11,6 @@ import Footer from './FooterComponent';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import Contact from './ContactComponent';
 import About from './AboutComponent';
-
 class Main extends Component {
 
 constructor(props)

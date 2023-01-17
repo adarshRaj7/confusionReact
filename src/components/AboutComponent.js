@@ -8,7 +8,7 @@ function RenderLeader({leader})
     return (
         <div className='col-12 mt-4'>
             <Media list>
-                <Media tag="li">
+                <Media tag="li" key={leader.id}>
                      <Media left middle  >
                         <Media
                            object
