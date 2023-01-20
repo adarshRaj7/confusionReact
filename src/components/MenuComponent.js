@@ -20,7 +20,7 @@ import {Link} from 'react-router-dom';
     
         const menu=props.dishes.map((dish)=> {
             return (
-                <div key={dish.id} className="col-12 col-md-5 mt-1">
+                <div key={dish.id} className="col-12 col-md-5 mt-2">
                     <RenderMenuItem dish={dish} />   
                 </div>
             );

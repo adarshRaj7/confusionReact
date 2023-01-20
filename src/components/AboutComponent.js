@@ -7,24 +7,23 @@ function RenderLeader({leader})
     console.log(leader.name);
     return (
         <div className='col-12 mt-4'>
-            <Media list>
-                <Media tag="li" key={leader.id}>
-                     <Media left middle  >
-                        <Media
-                           object
-                           src={leader.image}
-                           alt={leader.name} 
-                           />
-                     </Media>
-                     <Media body className="ml-5">
-                        <Media heading>{leader.name}</Media>
-                        <p>{leader.designation}</p>
-                        <p className='mt-2'>
-                            {leader.description}
-                        </p>
-                     </Media>
-                </Media>
-            </Media>
+                <li className='' key={leader.id}>
+                    <div className='row'>
+                        <div className='col-auto  photo'>
+                                <a ><img className=' media-photo' 
+                                    src={leader.image}
+                                    alt={leader.name} 
+                                /></a>
+                        </div>
+                        <div className=" col-12 col-md " >
+                            <h4 className='' >{leader.name}</h4>
+                            <p>{leader.designation}</p>
+                            <p className='mt-2'>
+                                {leader.description}
+                            </p>
+                        </div>
+                    </div>
+                </li>
             {/* <Media list>{leader.name}</Media> */}
             
         </div>
@@ -98,9 +97,10 @@ function About(props) {
                     <h2>Corporate Leadership</h2>
                 </div>
                 <div className="col-12">
-                    <Media list>
+                    <ul>
                         {leaders}
-                    </Media>
+                    </ul>
+                
                 </div>
             </div>
         </div>

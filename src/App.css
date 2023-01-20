@@ -95,10 +95,47 @@
   padding-top: 30px;
 }
 .loginModal{
-  z-index: 10000;
+  z-index: 2;
 }
 .login-btn{
   
   background-color: #9575CD;
   border-radius: 26px;
+}
+.navbar{
+  position: sticky;
+  top:0;
+  opacity: 0.95;
+  z-index: 1;
+  /* position: fixed;
+  display: flex;
+  z-index: 1;
+  overflow: hidden;
+  justify-content: space-between;
+  width: 100%; */
+}
+.paragraph{
+  flex-direction: row;
+  flex: 1;
+  flex-wrap: wrap;
+}
+.roww{
+  width: 100%;
+}
+.pic{
+  display: flex;
+  align-items: center;
+}
+
+ul{
+  list-style-type: none;
+}
+.media-photo{
+  height: 95px;
+  width: 105px;
+}
+
+.photo{
+  padding-top: 20px;
+  margin-bottom: 10px;
 }
