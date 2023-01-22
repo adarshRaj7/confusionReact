@@ -139,3 +139,11 @@ ul{
   padding-top: 20px;
   margin-bottom: 10px;
 }
+.submit-btn{
+  background-color: #ffff;
+  color:#6c757d;
+
+}
+.submit{
+  font-family: sans-serif;
+}

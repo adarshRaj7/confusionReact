@@ -77,10 +77,10 @@ function About(props) {
                         </CardBody>
                     </Card>
                 </div>
-                <div className="col-12">
+                <div className="col-12 mt-2">
                     <Card>
                         <CardBody className="bg-faded">
-                            <blockquote className="blockquote">
+                            <blockquote className="blockquote ">
                                 <p className="mb-0">You better cut the pizza in four pieces because
                                     I'm not hungry enough to eat six.</p>
                                 <footer className="blockquote-footer">Yogi Berra,

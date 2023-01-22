@@ -2,6 +2,7 @@ import React from "react";
 import { Card, CardImg, Breadcrumb, BreadcrumbItem,  CardImgOverlay, CardText, CardBody, CardTitle, List } from "reactstrap";
 import "../App.css";
 import {Link} from 'react-router-dom';
+import Comment from "./CommentFormComponent";
 
     function RenderDish({dish})
     {
@@ -58,6 +59,7 @@ import {Link} from 'react-router-dom';
                             );
                         })}
                     </ul>
+                    <Comment/>
                 </div>
             );
         }
