@@ -3,6 +3,9 @@ import {Badge,Modal, Button, ModalHeader, ModalBody, Navbar,NavbarBrand, Nav, Na
 
 import {Control, LocalForm, Errors} from 'react-redux-form'
 import "../App.css";
+const required=(val)=>val&&val.length;
+const maxLength=(len)=> (val)=>!(val) || (val.length<=len) ;
+const minLength=(len)=>(val)=>(val) && (val.length>=len) ;
 
 class Comment extends Component{
     constructor(props)
@@ -62,7 +65,21 @@ class Comment extends Component{
                                             className="form-control"
                                             id="author"
                                             name="author"
-                                            placeholder="Your Name"></Control.text>
+                                            placeholder="Your Name"
+                                            validators={{
+                                                required,
+                                                minLength:minLength(3),
+                                                maxLength:maxLength(15)
+                                            }}></Control.text>
+                                            <Errors
+                                                className="text-danger"
+                                                model=".author"
+                                                show="touched"
+                                                messages={{
+                                                    required: "Required",
+                                                    minLength:"Must be greater than 2 characters",
+                                                    maxLength:"Must be less than 16 characters"
+                                                }}></Errors>
                                     </Col>
                                 </Row>
                                 <Row className="form-group">
