@@ -94,6 +94,7 @@ class Comment extends Component{
                                     </Col>
                                 </Row>
                             </LocalForm>
+                            <Button type="submit" color="primary">Submit</Button>
                         </div>
                     </ModalBody>
                 </Modal>
