@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import {Badge,Modal, Button, ModalHeader, ModalBody, Navbar,NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, FormGroup, Label, Input, Form, Row, Col } from 'reactstrap';
-
+import { addComment } from "../redux/ActionCreaters";
 import {Control, LocalForm, Errors} from 'react-redux-form'
 import "../App.css";
 const required=(val)=>val&&val.length;
 const maxLength=(len)=> (val)=>!(val) || (val.length<=len) ;
 const minLength=(len)=>(val)=>(val) && (val.length>=len) ;
+const value={rating:0,author:"testauthor", comment:"testcomment"};
 
 class Comment extends Component{
     constructor(props)
@@ -15,12 +16,15 @@ class Comment extends Component{
         {
             isModalOpen : false
         };
-        // this.handleSubmit=this.handleSubmit.bind(this);
+        this.handleSubmit=this.handleSubmit.bind(this);
         this.toggleModal=this.toggleModal.bind(this);
     }
-    // handleSubmit(values){
-
-    // }
+    handleSubmit(values){
+        this.toggleModal();
+        console.log("handleSubmit called from inside CommentForm component with values : ")
+        console.log(values);
+        this.props.addComment(this.props.dishId,values.rating, values.author,values.comment);
+    }
     toggleModal(){
         console.log(this.state.isModalOpen);
         console.log("Button clicked");
@@ -28,7 +32,9 @@ class Comment extends Component{
         {   
             isModalOpen:!this.state.isModalOpen
         });
+
     }
+    
     render()
     {
         return (
@@ -41,7 +47,7 @@ class Comment extends Component{
                     <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
                     <ModalBody>
                         <div className="col-12">
-                            <LocalForm>
+                            <LocalForm onSubmit={(values)=>this.handleSubmit(values)}>
                                 <Row className="form-group">
                                     <Label htmlFor="rating" className="ml-3 col-form-label">Rating</Label>
                                     <Col xs={12}>
@@ -94,7 +100,7 @@ class Comment extends Component{
                                     </Col>
                                 </Row>
                             </LocalForm>
-                            <Button type="submit" color="primary">Submit</Button>
+                            <Button type="submit" color="primary" onClick={(value)=>this.handleSubmit(value)}>Submit</Button>
                         </div>
                     </ModalBody>
                 </Modal>
