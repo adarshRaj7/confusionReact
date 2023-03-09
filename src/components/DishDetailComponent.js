@@ -4,13 +4,14 @@ import "../App.css";
 import {Link} from 'react-router-dom';
 import Comment from "./CommentFormComponent";
 import { Loading } from "./LoadingComponent";
+import { baseUrl } from "../shared/baseUrl";
 
     function RenderDish({dish})
     {
         return(
             <div className="col-12 col-md m-1">
                     <Card >
-                        <CardImg  src={dish.image} alt={dish.name}></CardImg>
+                        <CardImg  src={baseUrl+dish.image} alt={dish.name}></CardImg>
                         <CardBody>
                             <CardTitle>{dish.name}</CardTitle>
                             <CardText>{dish.description}</CardText>
