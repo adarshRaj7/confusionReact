@@ -45,7 +45,7 @@ import { baseUrl } from "../shared/baseUrl";
     //     // });
     // }
 
-    function RenderComments({comments,addComment,dishId})
+    function RenderComments({comments,postComment,dishId})
     {
             return (
                 // <div>{cmmts}</div>
@@ -61,7 +61,7 @@ import { baseUrl } from "../shared/baseUrl";
                             );
                         })}
                     </ul>
-                    <Comment dishId={dishId} addComment={addComment}/>
+                    <Comment dishId={dishId} postComment={postComment}/>
                 </div>
             );
         }
@@ -114,7 +114,7 @@ import { baseUrl } from "../shared/baseUrl";
                         <div className="col-12 col-lg-6">
                             <h4> Comments </h4>
                               <RenderComments comments={props.comments}
-                                    addComment={props.addComment}
+                                    postComment={props.postComment}
                                     dishId={props.dish.id}/> 
                         </div>
                     </div>

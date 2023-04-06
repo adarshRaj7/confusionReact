@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import {Badge,Modal, Button, ModalHeader, ModalBody, Navbar,NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, FormGroup, Label, Input, Form, Row, Col } from 'reactstrap';
-import { addComment } from "../redux/ActionCreaters";
+import {Modal, Button, ModalHeader, ModalBody, Navbar,NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, FormGroup, Label, Input, Form, Row, Col } from 'reactstrap';
 import {Control, LocalForm, Errors} from 'react-redux-form'
 import "../App.css";
 const required=(val)=>val&&val.length;
@@ -21,9 +20,9 @@ class Comment extends Component{
     }
     handleSubmit(values){
         this.toggleModal();
-        console.log("handleSubmit called from inside CommentForm component with values : ")
+        console.log("handleSubmit called from inside CommentForm component with values : ",values)
         console.log(values);
-        this.props.addComment(this.props.dishId,values.rating, values.author,values.comment);
+        this.props.postComment(this.props.dishId,values.rating, values.author,values.comment);
     }
     toggleModal(){
         console.log(this.state.isModalOpen);
@@ -99,8 +98,8 @@ class Comment extends Component{
                                         rows={6}></Control.textarea>
                                     </Col>
                                 </Row>
-                            </LocalForm>
                             <Button type="submit" color="primary" onClick={(value)=>this.handleSubmit(value)}>Submit</Button>
+                            </LocalForm>
                         </div>
                     </ModalBody>
                 </Modal>
