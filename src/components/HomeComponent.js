@@ -3,6 +3,7 @@ import {Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle} from 'reacts
 import { Loading } from "./LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
 import { leadersLoading } from "../redux/ActionCreaters";
+import {FadeTransform} from 'react-animation-components';
 function RenderCard({item,isLoading,errMess})
 {
     if(isLoading)
@@ -19,16 +20,18 @@ function RenderCard({item,isLoading,errMess})
     }
     else
         return (
-            <Card>
-                {console.log("item",item)}
-                <CardImg src={baseUrl+item.image} alt={item.name}></CardImg>
+            <FadeTransform in transformProps={{exitTransform:'scale(0.5) translateY(-50%)'}}>
+                <Card>
+                    {console.log("item",item)}
+                    <CardImg src={baseUrl+item.image} alt={item.name}></CardImg>
                 
-                <CardBody >
-                    <CardTitle>{item.name}</CardTitle>
-                    {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle>:null}
-                    <CardText>{item.description}</CardText>
-                </CardBody>
-            </Card>
+                    <CardBody >
+                        <CardTitle>{item.name}</CardTitle>
+                        {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle>:null}
+                        <CardText>{item.description}</CardText>
+                    </CardBody>
+                </Card>
+            </FadeTransform>
         );
 }
 
