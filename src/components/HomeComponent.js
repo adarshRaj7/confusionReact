@@ -2,7 +2,6 @@ import React  from "react";
 import {Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle} from 'reactstrap';
 import { Loading } from "./LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
-import lead from "../../src/alberto.png";
 import { leadersLoading } from "../redux/ActionCreaters";
 function RenderCard({item,isLoading,errMess})
 {

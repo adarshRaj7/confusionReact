@@ -1,17 +1,18 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { baseUrl } from '../shared/baseUrl';
 
 function RenderLeader({leader})
 {
-    console.log(leader.name);
+    console.log(leader);
     return (
         <div className='col-12 mt-4'>
                 <li className='' key={leader.id}>
                     <div className='row'>
                         <div className='col-auto  photo'>
                                 <a ><img className=' media-photo' 
-                                    src={leader.image}
+                                    src={baseUrl+leader.image}
                                     alt={leader.name} 
                                 /></a>
                         </div>
@@ -32,7 +33,7 @@ function RenderLeader({leader})
 
 function About(props) {
 
-    const leaders = props.leaders.map((leader) => {
+    const leaders = props.leaders.leaders.map((leader) => {
         return (
             // {this:RenderLeader leader={leader}}
             <div>
