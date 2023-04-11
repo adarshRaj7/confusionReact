@@ -8,7 +8,7 @@ import {Switch, Route, Redirect, withRouter} from 'react-router-dom';
 import Contact from './ContactComponent';
 import About from './AboutComponent';
 import { connect } from 'react-redux';
-import { postComment ,fetchComments,fetchDishes,fetchPromos,fetchLeaders} from '../redux/ActionCreaters';
+import {postFeedback, postComment,fetchFeedbacks ,fetchComments,fetchDishes,fetchPromos,fetchLeaders} from '../redux/ActionCreaters';
 import { actions } from 'react-redux-form';
 import {TransitionGroup,CSSTransition} from 'react-transition-group';
 
@@ -23,11 +23,14 @@ const mapStateToProps=state=>{
 
 const mapDishpachToProps= (dispatch) =>({
   postComment: (dishId,rating,author,comment) => dispatch(postComment(dishId, rating,author,comment)),
+  postFeedback:(firstname, lastname, telnum, email,agree ,contactType,message)=>dispatch(postFeedback(firstname, lastname, telnum, email,agree ,contactType,message)),
   fetchDishes:()=>{dispatch(fetchDishes())},
   resetFeedbackForm: () => {dispatch(actions.reset('feedback'))},
   fetchComments:()=>{dispatch(fetchComments())},
   fetchPromos:()=>{dispatch(fetchPromos())},
-  fetchLeaders:()=>{dispatch(fetchLeaders())}
+  fetchLeaders:()=>{dispatch(fetchLeaders())},
+  fetchFeedbacks:()=>{dispatch(fetchFeedbacks())}
+
 
 });
 
@@ -42,6 +45,7 @@ componentDidMount(){
   this.props.fetchComments();
   this.props.fetchPromos();
   this.props.fetchLeaders();
+  this.props.fetchFeedbacks();
 
 }
 
@@ -89,7 +93,7 @@ componentDidMount(){
             <Route path="/home" component={Homepage}></Route>
             <Route exact path="/menu" component={()=><Menu dishes={this.props.dishes}/>}></Route>
             <Route path="/menu/:dishId" component={DishWithId}></Route>
-            <Route exact path='/contactus' component={()=><Contact resetFeedbackForm={this.props.resetFeedbackForm}></Contact>}></Route>
+            <Route exact path='/contactus' component={()=><Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback}></Contact>}></Route>
             <Route exact path='/aboutus' component={()=><About leaders={this.props.leaders}></About>}></Route>
             <Redirect to="/home"></Redirect>
           </Switch>

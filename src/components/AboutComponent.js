@@ -2,46 +2,66 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { baseUrl } from '../shared/baseUrl';
-
-function RenderLeader({leader})
+import {FadeTransform, Fade,Stagger} from 'react-animation-components';
+function RendertheLeaders({leader})
 {
-    console.log(leader);
-    return (
-        <div className='col-12 mt-4'>
-                <li className='' key={leader.id}>
-                    <div className='row'>
-                        <div className='col-auto  photo'>
-                                <a ><img className=' media-photo' 
-                                    src={baseUrl+leader.image}
-                                    alt={leader.name} 
-                                /></a>
-                        </div>
-                        <div className=" col-12 col-md " >
-                            <h4 className='' >{leader.name}</h4>
-                            <p>{leader.designation}</p>
-                            <p className='mt-2'>
-                                {leader.description}
-                            </p>
-                        </div>
-                    </div>
-                </li>
+    console.log("Leaders accepte are "+JSON.stringify(leader));
+    return(
+        <div className='col-12'>
+            <ul>
+                <Stagger in>
+                    {leader.map((leader)=>{
+                        return (
+                            <Fade in>
+                                <div className='col-12 mt-4'>
+                                    <li className='' key={leader.id}>
+                                        <div className='row'>
+                                            <div className='col-auto  photo'>
+                                                <a ><img className=' media-photo' 
+                                                    src={baseUrl+leader.image}
+                                                   alt={leader.name} 
+                                                /></a>
+                                            </div>
+                                            <div className=" col-12 col-md " >
+                                                <h4 className='' >{leader.name}</h4>
+                                                <p>{leader.designation}</p>
+                                                <p className='mt-2'>
+                                                {leader.description}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
             {/* <Media list>{leader.name}</Media> */}
             
+                                </div>
+                            </Fade>
+                        );
+                    })}
+                </Stagger>
+                {/* {leaders} */}
+            </ul>
         </div>
     );
+
 }
+// function RenderLeader({leader})
+// {
+//     return (
+        
+//     );
+// }
 
 function About(props) {
 
-    const leaders = props.leaders.leaders.map((leader) => {
-        return (
-            // {this:RenderLeader leader={leader}}
-            <div>
-                <RenderLeader leader={leader}></RenderLeader>
-            </div>// <p>{leader.name }</p>
-            // <p>Leader {leader.name}</p>
-        );
-    });
+    // const leaders = props.leaders.leaders.map((leader) => {
+    //     return (
+    //         // {this:RenderLeader leader={leader}}
+    //         <div>
+    //             <RenderLeader leader={leader}></RenderLeader>
+    //         </div>// <p>{leader.name }</p>
+    //         // <p>Leader {leader.name}</p>
+    //     );
+    // });
 
     return(
         <div className="container">
@@ -98,9 +118,9 @@ function About(props) {
                     <h2>Corporate Leadership</h2>
                 </div>
                 <div className="col-12">
-                    <ul>
-                        {leaders}
-                    </ul>
+
+                    <RendertheLeaders leader={props.leaders.leaders}></RendertheLeaders>
+                    
                 
                 </div>
             </div>
